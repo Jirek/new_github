@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear propietario</h2>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-2">
+
+        <form action="@Url.Action("create", "propietario")" method="post">
+        
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="Nombre" />
+                @Html.ValidationMessage("Nombre")
+            </div>
+
+            <div class="form-group">
+                <label>Teléfono</label>
+                <input type="text" class="form-control" name="Telefono" />
+                @Html.ValidationMessage("Telefono")
+            </div>
+
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" name="Email" />
+                @Html.ValidationMessage("Email")
+            </div>
+
+            <div class="form-group">
+                <label>Dirección</label>
+                <input type="text" class="form-control" name="Direccion" />
+                @Html.ValidationMessage("Direccion")
+            </div>
+
+            <button type="submit" class="btn btn-primary pull-right">Guardar</button>
+
+        </form>
+    </div>
+</div>
+

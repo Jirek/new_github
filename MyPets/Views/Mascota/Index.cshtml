@@ -1,0 +1,62 @@
+﻿@model MyPets.Models.Mascota
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Mascota @Model.Nombre</h2>
+
+<dl>
+    <dt>Fecha de nacimiento</dt>
+    <dd>@Model.FechaNacimiento</dd>
+</dl>
+
+<dl>
+    <dt>Sexo</dt>
+    <dd>@Model.Sexo</dd>
+</dl>
+
+
+<dl>
+    <dt>Peso</dt>
+    <dd>@Model.Peso</dd>
+</dl>
+
+
+<dl>
+    <dt>Raza</dt>
+    <dd>@Model.Raza</dd>
+</dl>
+
+
+<br  />
+
+<a href="@Url.Action("create", "consulta", new { mascotaId = Model.Id })">Crear consulta</a>
+
+@if(Model.Consultas.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Anamnesis</th>
+                <th>Examen</th>
+                <th>Diagnostico</th>
+                <th>Tratamiento</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.Consultas)
+            {
+                <tr>
+                    <td>@item.Anamnesis</td>
+                    <td>@item.Examen</td>
+                    <td>@item.Diagnostico</td>
+                    <td>@item.Tratamiento</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+

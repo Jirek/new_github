@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear Consulta</h2>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-2">
+
+        <form action="@Url.Action("create", "consulta")" method="post">
+
+            <input type="hidden" name="MascotaId" value="@Model" />
+
+            <div class="form-group">
+                <label>Fecha de Consulta</label>
+                <input type="text" class="form-control" name="FechaConsulta" />
+                @Html.ValidationMessage("FechaConsulta")
+            </div>
+
+
+            <div class="form-group">
+                <label>Anamnesis</label>
+                <textarea class="form-control" name="Anamnesis" ></textarea>
+                @Html.ValidationMessage("Anamnesis")
+            </div>
+
+            <div class="form-group">
+                <label>Examen</label>
+                <textarea class="form-control" name="Examen"></textarea>
+                @Html.ValidationMessage("Examen")
+            </div>
+
+            <div class="form-group">
+                <label>Diagnostico</label>
+                <textarea class="form-control" name="Diagnostico"></textarea>
+                @Html.ValidationMessage("Diagnostico")
+            </div>
+
+            <div class="form-group">
+                <label>Tratamiento</label>
+                <textarea class="form-control" name="Tratamiento"></textarea>
+                @Html.ValidationMessage("Tratamiento")
+            </div>            
+
+            <button type="submit" class="btn btn-primary pull-right">Guardar</button>
+
+        </form>
+    </div>
+</div>
+

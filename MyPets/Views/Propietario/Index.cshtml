@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Propietarios</h2>
+
+
+<a href="@Url.Action("create", "propietario")" class="btn btn-default">Agrear Propietario</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Mascotas</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Telefono</td>
+                <td>@item.Direccion</td>
+                <td>
+                    <ul>
+                        @foreach (var mascota in item.Mascotas)
+                        {
+                            <li><a href="@Url.Action("index", "mascota", new { id = mascota.Id })">@mascota.Nombre</a></li>
+                        }
+                    </ul>
+                </td>
+                <td><a href="@Url.Action("create", "mascota", new { id = item.Id })">Agregar Mascota</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
